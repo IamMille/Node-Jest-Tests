@@ -1,0 +1,29 @@
+{
+  "devDependencies": {
+    "jest": "^20.0.3"
+  },
+  "name": "node-jest-tests",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "jest": "^20.0.3"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IamMille/Node-Jest-Tests.git"
+  },
+  "keywords": [
+    "tdd",
+    "jest"
+  ],
+  "author": "Mille",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IamMille/Node-Jest-Tests/issues"
+  },
+  "homepage": "https://github.com/IamMille/Node-Jest-Tests#readme"
+}
