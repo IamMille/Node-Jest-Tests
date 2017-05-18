@@ -37,20 +37,28 @@ describe('Uppgift 8 - isPrime(n)', () =>
     //2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41,
 	  // 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97
 
-    test('Fyra nej', () => {
+    test('Fyra, nej', () => {
      expect(isPrime(4)).toBe(false);
     });
 
     test('Fem', () => {
-     expect(isPrime(5)).toBe(true);
+     expect(isPrime(5)).toBe(true); //toBeCloseTo
     });
 
     test('Femtionio', () => {
      expect(isPrime(59)).toBe(true);
     });
 
-    test('Sextioett nej', () => {
+    test('Sextioett, nej', () => {
      expect(isPrime(63)).toBe(false);
+    });
+
+    test('Fem komma tjugofem, nej', () => {
+     expect(() => {
+       isPrime(5.25);
+     }).toThrow(
+       'Not an integer!'
+     ); //toBeCloseTo
     });
 
     test('Banan nej', () => {
@@ -161,19 +169,19 @@ Skriv testfall för funktionen hypotenuse(a, b). Parametrarna a och b motsvarar 
 describe('Uppgift 5 - hypotenuse(a, b)', () =>
 {
   test('One and one is Two', () => {
-   expect(hypotenuse(1,1)).toBe(2);
+    expect(hypotenuse(1,1)).toBeCloseTo(1.4142135623731);
   });
 
   test('Five and ten', () => {
-   expect(hypotenuse(5,10)).toBe(125);
+    expect(hypotenuse(5,10)).toBeCloseTo(11.180339887499);
   });
 
   test('Minus five and eleven', () => {
-   expect(() => {
-     hypotenuse(-5,11);
-   }).toThrow(
-     'Not a positive number!'
-   );
+    expect(() => {
+      hypotenuse(-5,11);
+    }).toThrow(
+      'Not a positive number!'
+    );
   });
 
   test('X and Y', () => {

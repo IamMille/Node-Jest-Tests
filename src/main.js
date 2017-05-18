@@ -14,10 +14,13 @@ function loopDownFrom(n) {
 function isPrime(n) //Optimus Prime
 {
   if (!(Number(n) > 1))
-	 throw "Not a positive number!";
+	  throw "Not a positive number!";
+
+  if (n % 1 !== 0)
+    throw "Not an integer!";
 
   for (var i=2; i<n; i++)
-	if (n % i === 0) return false;
+	  if (n % i === 0) return false;
 
   return true;
 }
@@ -47,7 +50,7 @@ function numberOfDays(month, year)
 function hypotenuse(a, b)
 {
 	if (Number(a) > 0 && Number(b) > 0)
-		return a*a + b*b;
+		return Math.sqrt(a*a + b*b);
 	else
 		throw "Not a positive number!";
 }
