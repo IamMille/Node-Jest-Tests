@@ -4,7 +4,7 @@ import './App.css';
 
 import Inner from './14-Inner.js';
 import Pages from './15-pageNumber.js';
-//const Inner = require('./Inner.js');
+import Form from './16-Form.js';
 
 class App extends Component
 {
@@ -26,18 +26,23 @@ class App extends Component
       </div>
 
       <p>
-        <h3>countUp & countDown (#11)</h3>
-        <button onClick={this.clickButton.bind(this)}>Set state value to 1</button>
+        <h2>Form (#16)</h2>
+        <Form />
       </p>
 
       <p>
-        <h3>This is inner (#14)</h3>
+        <h2>Page Numbers (#15)</h2>
+        <Pages />
+      </p>
+
+      <p>
+        <h2>This is inner (#14)</h2>
         <Inner />
       </p>
 
       <p>
-        <h3>Page Numbers (#15)</h3>
-        <Pages />
+        <h2>countUp & countDown (#11)</h2>
+        <button onClick={this.clickButton.bind(this)}>Set state value to 1</button>
       </p>
 
     </div>;
