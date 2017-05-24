@@ -1,29 +1,20 @@
 {
-  "devDependencies": {
-    "jest": "^20.0.3"
-  },
-  "name": "node-jest-tests",
-  "description": "",
-  "version": "1.0.0",
-  "main": "index.js",
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "jest": "^20.0.3"
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
+  },
+  "devDependencies": {
+    "enzyme": "^2.8.2",
+    "react-scripts": "1.0.5",
+    "react-test-renderer": "^15.5.4"
   },
   "scripts": {
-    "test": "jest"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/IamMille/Node-Jest-Tests.git"
-  },
-  "keywords": [
-    "tdd",
-    "jest"
-  ],
-  "author": "Mille",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/IamMille/Node-Jest-Tests/issues"
-  },
-  "homepage": "https://github.com/IamMille/Node-Jest-Tests#readme"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --notify --env=jsdom",
+    "//": "react-scripts eject"
+  }
 }
