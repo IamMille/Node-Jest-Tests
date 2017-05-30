@@ -8,6 +8,7 @@
   },
   "devDependencies": {
     "enzyme": "^2.8.2",
+    "gh-pages": "^1.0.0",
     "react-scripts": "1.0.5",
     "react-test-renderer": "^15.5.4"
   },
@@ -15,6 +16,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --notify --env=jsdom",
-    "//": "react-scripts eject"
-  }
+    "//": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "homepage": "http://iammille.github.io/Node-Jest-Tests/"
 }

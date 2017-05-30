@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 /*
 Uppgift 16 [Inlämningsuppgift]
 
@@ -53,45 +53,51 @@ describe('Form (#16)', () =>
   test('Writing name updates state', () => {
     var html = shallow(<MyForm />);
 
-    html.simulate('change', {
+    html.find('input').at(0).simulate('change', {
       target: {name: "name", value: "JSninja"}
     });
 
     expect(
       html.state('name')
-    ).toBe(undefined); //.toBe('JSninja');
+    ).toBe('JSninja'); //.toBe(undefined);
   });
 
   test('Writing email updates state', () => {
     var html = shallow(<MyForm />);
 
-    html.simulate('change', {
-      target: {name: "email", value: "JSninja@example.com"}
+    html.find('input[name="email"]').simulate('change', {
+      target: {name: 'email', value: 'JSninja@example.com'}
     });
 
     expect(
       html.state('email')
-    ).toBe(undefined); //.toBe('JSninja');
+    ).toBe('JSninja@example.com'); //.toBe('JSninja');
   });
 
-  test('Clicking button clears state', () => {
-    var html = shallow(<MyForm />);
-    html.simulate('click');
+  test('Clicking button clears state name', () => {
+    var html = mount(<MyForm />); // using mount so the onClick event triggers
+
+    html.find('input[name="name"]').simulate('change', {
+      target: {name: 'name', value: 'NameValue'}
+    });
+
+    html.find('button').simulate('click');
 
     expect(
-      Boolean(html.state('name') * html.state('email'))
-    ).toBe(false);
+      html.state('name')
+    ).toBe('');
   });
 
-  test('Clicking button clears input "name"', () => {
-    var html = shallow(<MyForm />);
-    html.simulate('click');
+  test('Clicking button clears input email', () => {
+    var html = mount(<MyForm />); // using mount so the onClick event triggers
+
+    html.find('button').simulate('click');
 
     expect(
       html
-      .find('input').at(0)
+      .find('input[name="email"]')
       .props().value
-    ).toBe("");
+    ).toBe('');
   });
 
 });

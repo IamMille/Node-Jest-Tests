@@ -17,28 +17,59 @@ class MyForm extends Component
 {
   constructor() {
     super(...arguments);
-    this.state = {};
+
+    this.state = {
+      name: '',
+      email: ''
+    };
+
+    this.handleClear = this.handleClear.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   render() {
     return <div>
-      <input name="name" placeholder="Enter your name" />
-      <input name="email" placeholder="Enter your e-mail" />
-      <MyButton doClear={() => this.buttonDoClear()} />
+      <input
+        name="name"
+        placeholder="Enter your name"
+        onChange={this.handleChange}
+        value={this.state.name}
+      />
+
+      <input
+        name="email"
+        placeholder="Enter your e-mail"
+        onChange={this.handleChange}
+        value={this.state.email}
+      />
+
+    <MyButton handleClear={this.handleClear} />
     </div>;
   }
-  buttonDoClear() {
 
+  handleChange(e) {
+    if (e.target.name === 'name')
+      this.setState({ name: e.target.value });
+    else if (e.target.name === 'email')
+      this.setState({ email: e.target.value });
+  }
+
+  handleClear(e) {
+    console.log("button clicked, clear state please");
+    this.setState({
+      name: '',
+      email: ''
+    });
   }
 }
 
 class MyButton extends Component
 {
   render() {
-    const {doClear} = this.props;
     return <button
       className="buttonClass"
-      onClick={() => doClear()}>
+      onClick={this.props.handleClear}
+      >
         Clear Input
     </button>;
   }

@@ -25,25 +25,25 @@ class App extends Component
         <h1>Hello world</h1>
       </div>
 
-      <p>
+      <div>
         <h2>Form (#16)</h2>
         <Form />
-      </p>
+      </div>
 
-      <p>
+      <div>
         <h2>Page Numbers (#15)</h2>
         <Pages />
-      </p>
+      </div>
 
-      <p>
+      <div>
         <h2>This is inner (#14)</h2>
         <Inner />
-      </p>
+      </div>
 
-      <p>
+      <div>
         <h2>countUp & countDown (#11)</h2>
         <button onClick={this.clickButton.bind(this)}>Set state value to 1</button>
-      </p>
+      </div>
 
     </div>;
   }
